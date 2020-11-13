@@ -3,14 +3,14 @@ from datetime import date
 template = ("PLANTILLA_CONST_PRUEBA1.docx")
 document = MailMerge(template)
 print(document.get_merge_fields())
-{'numerodeoficio', 'EXPEDIENTE', 'NOMBREalumno', 'MATRICULA', 'CARRERA', 'INGRESOenSEMESTRE', 'DIA', 'MES', 'DIA2', 'MES2', 'AÑO', 'DIA3', 'MES3', 'DIA4', 'MES4', 'DIAS', 'MESexpedicion', 'TITULO', 'NOMBREJefeDepto'}
+{'NUMERODEOFICIO', 'EXPEDIENTE', 'NOMBREALUMNO', 'MATRICULA', 'CARRERA', 'INGRESOENSEMESTRE', 'DIA', 'MES', 'DIA2', 'MES2', 'AÑO', 'DIA3', 'MES3', 'DIA4', 'MES4', 'DIAS', 'MESEXPEDICION', 'TITULO', 'NOMBREJEFEDEPTO'}
 document . merge ( 
-numerodeoficio = '11020',
+NUMERODEOFICIO = '11020',
 EXPEDIENTE = 'ETG4-1',
-NOMBREalumno = 'RAÚL ESQUIVEL ROSADO',
+NOMBREALUMNO = 'RAÚL ESQUIVEL ROSADO',
 MATRICULA = 'E17080338',
 CARRERA = 'ING. ELECTRÓNICA',
-INGRESOenSEMESTRE = '8VO SEMESTRE', 
+INGRESOENSEMESTRE = '8VO SEMESTRE', 
 DIA= '23', 
 MES = 'NOVIEMBRE',
 DIA2 = '24', 
@@ -21,9 +21,9 @@ MES3 ='ENERO',
 DIA4 = '30',
 MES4 = 'OCTUBRE',
 DIAS = "20 DIAS",
-MESexpedicion = 'OCTUBRE', 
+MESEXPEDICION = 'OCTUBRE', 
 TITULO = 'MSC.',
-NOMBREJefeDepto = 'NORA LETICIA CUEVAS CUEVAS')
+NOMBREJEFEDEPTO = 'NORA LETICIA CUEVAS CUEVAS')
 
-document.write('CONST-salida.docx')
+document.write('CONST-salida3.docx')
 
