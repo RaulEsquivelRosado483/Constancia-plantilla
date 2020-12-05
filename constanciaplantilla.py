@@ -1,29 +1,31 @@
 from mailmerge import MailMerge
 from datetime import date
-template = ("PLANTILLA_CONST_PRUEBA1.docx")
-document = MailMerge(template)
-print(document.get_merge_fields())
-{'NUMERODEOFICIO', 'EXPEDIENTE', 'NOMBREALUMNO', 'MATRICULA', 'CARRERA', 'INGRESOENSEMESTRE', 'DIA', 'MES', 'DIA2', 'MES2', 'AÑO', 'DIA3', 'MES3', 'DIA4', 'MES4', 'DIAS', 'MESEXPEDICION', 'TITULO', 'NOMBREJEFEDEPTO'}
-document . merge ( 
-NUMERODEOFICIO = '11020',
-EXPEDIENTE = 'ETG4-1',
-NOMBREALUMNO = 'RAÚL ESQUIVEL ROSADO',
-MATRICULA = 'E17080338',
-CARRERA = 'ING. ELECTRÓNICA',
-INGRESOENSEMESTRE = '8VO SEMESTRE', 
-DIA= '23', 
-MES = 'NOVIEMBRE',
-DIA2 = '24', 
-MES2 ='DICIEMBRE', 
-AÑO = '2020',
-DIA3 = '12',
-MES3 ='ENERO', 
-DIA4 = '30',
-MES4 = 'OCTUBRE',
-DIAS = "20 DIAS",
-MESEXPEDICION = 'OCTUBRE', 
-TITULO = 'MSC.',
-NOMBREJEFEDEPTO = 'NORA LETICIA CUEVAS CUEVAS')
 
-document.write('CONST-salida3.docx')
+def generate_doc(template, data, output):
+  document = MailMerge((template))
+  document.merge(**data)
+  print(document.get_merge_fields())
+  document.write(output)
 
+data = {
+  'NUMERODEOFICIO' : '11020',
+  'EXPEDIENTE' : 'ETG4-1',
+  'NOMBREALUMNO' : 'RAÚL ESQUIVEL ROSADO',
+  'MATRICULA' : 'E17080338',
+  'CARRERA' : 'ING. ELECTRÓNICA',
+  'INGRESOENSEMESTRE' : '8VO SEMESTRE', 
+  'DIA': '23', 
+  'MES' : 'NOVIEMBRE',
+  'DIA2' : '24', 
+  'MES2' :'DICIEMBRE', 
+  'AÑO' :'2020',
+  'DIA3' : '12',
+  'MES3' :'ENERO', 
+  'DIA4' : '30',
+  'MES4' : 'OCTUBRE',
+  'DIAS' : "20 DIAS",
+  'MESEXPEDICION' : 'OCTUBRE', 
+  'TITULO' : 'MSC.',
+  'NOMBREJEFEDEPTO' : 'NORA LETICIA CUEVAS CUEVAS'}
+
+generate_doc(template="PLANTILLA_CONST_PRUEBA1.docx", data=data, output='CONSTANCIADESTUDIOSNo.3.docx')
